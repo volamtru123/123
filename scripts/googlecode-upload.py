@@ -179,7 +179,7 @@ def main():
 
   status, reason, url = upload(file_path, options.project,
                                options.user, password,
-                               options.summary, options.labels)
+                               options.summary, labels)
   if url:
     print 'The file was uploaded successfully.'
     print 'URL: %s' % url
