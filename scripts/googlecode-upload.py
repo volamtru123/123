@@ -47,7 +47,6 @@ __author__ = 'danderson@google.com (David Anderson)'
 
 import httplib
 import os.path
-import sys
 import optparse
 import getpass
 import base64
@@ -72,6 +71,11 @@ def upload(file, project_name, user_name, password, summary, labels=None):
     file_url: If the upload succeeded, the URL of the file on Google
               Code, None otherwise.
   """
+  # The login is the user part of user@gmail.com. If the login provided
+  # is in the full user@domain form, strip it down.
+  if '@' in user_name:
+    user_name = user_name[:user_name.index('@')]
+
   form_fields = [('summary', summary)]
   if labels is not None:
     form_fields.extend([('label', l.strip()) for l in labels])
@@ -168,7 +172,9 @@ def main():
     parser.error('File to upload not provided.')
 
   print 'Please enter your googlecode.com password.'
-  print 'Note that this is NOT your main Gmail account password!'
+  print '** Note that this is NOT your Gmail account password! **'
+  print 'It is the password you use to access Subversion repositories,'
+  print 'and can be found here: http://code.google.com/hosting/settings'
   password = getpass.getpass()
   file_path = args[0]
 
