@@ -128,7 +128,7 @@ def encode_upload_request(fields, file_path):
 
   # Now add the file itself
   file_name = os.path.basename(file_path)
-  f = open(file_path)
+  f = open(file_path, 'rb')
   file_content = f.read()
   f.close()
 
