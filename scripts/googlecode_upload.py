@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright 2006 Google Inc. All Rights Reserved.
+# Copyright 2006, 2007 Google Inc. All Rights Reserved.
 # Author: danderson@google.com (David Anderson)
 #
 # Script for uploading files to a Google Code project.
@@ -38,7 +38,7 @@
 #
 # Questions, comments, feature requests and patches are most welcome.
 # Please direct all of these to the Google Code users group:
-#  http://groups-beta.google.com/group/google-code-hosting
+#  http://groups.google.com/group/google-code-hosting
 
 """Google Code file uploader script.
 """
