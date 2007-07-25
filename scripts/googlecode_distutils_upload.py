@@ -20,13 +20,13 @@ except ImportError:
     def __init__(self, *args, **kwargs):
       sys.stderr.write("""\
 error: Install this module in site-packages to upload:
-  http://support.googlecode.com/svn/trunk/scripts/googlecode_distutils_upload.py
+ http://support.googlecode.com/svn/trunk/scripts/googlecode_distutils_upload.py
 """)
-  sys.exit(3)
+      sys.exit(3)
 
 setup(...,
-     cmdclass={'upload': upload},
-     )
+      cmdclass={'upload': upload},
+      )
 '''
 
 
@@ -48,16 +48,16 @@ class upload(distutils.core.Command):
   user_options = [('src', None,
                    'upload source distribution'),
                   ('windows', None,
-                  'upload Windows distribution'),
+                   'upload Windows distribution'),
                   ('dist-dir=', 'd',
                    'directory to find distribution archive in'
                    ' [default: dist]'),
                   ('config-dir=', None,
                    'read svn auth data from DIR'
-                  ' ("none" means not to use svn auth data)'),
-                 ('user=', 'u',
-                  'Google Code username'),
-                 ]
+                   ' ("none" means not to use svn auth data)'),
+                  ('user=', 'u',
+                   'Google Code username'),
+                  ]
   boolean_options = ['src', 'windows']
 
   def initialize_options(self):
