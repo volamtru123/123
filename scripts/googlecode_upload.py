@@ -167,6 +167,14 @@ def upload_find_auth(file_path, project_name, summary, labels=None,
     user_name: Your Google account name.
     tries: How many attempts to make.
   """
+  if user_name is None or password is None:
+    from netrc import netrc
+    authenticators = netrc().authenticators("code.google.com")
+    if authenticators:
+      if user_name is None:
+        user_name = authenticators[0]
+      if password is None:
+        password = authenticators[2]
 
   while tries > 0:
     if user_name is None:
